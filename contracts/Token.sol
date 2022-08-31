@@ -4,9 +4,7 @@ pragma solidity 0.8.16;
 // contracts
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-
-contract Token is ERC20, Ownable {
+contract Token is ERC20 {
     uint8 public _decimals;
 
     constructor(
@@ -15,10 +13,6 @@ contract Token is ERC20, Ownable {
         uint8 decimals_
     ) ERC20(name, symbol) {
         _decimals = decimals_;
-    }
-
-    function mint(address _to, uint256 _amount) public onlyOwner {
-        _mint(_to, _amount);
     }
 
     function decimals() public view virtual override returns (uint8) {

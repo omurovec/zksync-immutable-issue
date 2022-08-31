@@ -9,7 +9,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   // Initialize the wallet.
   const provider = new Provider(hre.userConfig.zkSyncDeploy?.zkSyncNetwork);
-  const wallet = new Wallet(process.env.PRIVATE_KEY as string);
+  const wallet = new Wallet(process.env.PK as string);
 
   // Create deployer object and load the artifact of the contract you want to deploy.
   const deployer = new Deployer(hre, wallet);
